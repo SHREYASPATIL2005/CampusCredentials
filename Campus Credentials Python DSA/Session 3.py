@@ -286,6 +286,9 @@ print(l[len(l)-2]) # 5
 
 """
 # minimum element in a list: The minimum element in a list is the element that is smaller than all other elements in the list. To find the minimum element in a list, you can iterate through the list and keep track of the smallest element seen so far. If you encounter an element that is smaller than the current smallest element, you update the smallest element to be the new element.
+from numpy import inner
+
+
 l = [4,62,2,1,3,5]
 mi = l[0]
 for i in range(1,len(l)):
@@ -481,3 +484,45 @@ s1 = {1,2,3}
 s2 = {3,4,5}
 print(s1 - s2) # {1, 2} # difference
 print(s1.difference(s2)) # {1, 2} # difference
+
+
+# Helper function: A helper function is a function that is used to perform a specific task that is needed by another function. It is often used to break down a complex problem into smaller, more manageable parts. Helper functions are typically defined within the scope of the main function and are not intended to be called directly by the user. They are used to simplify the code and make it more readable and maintainable.
+# Helper function is a function inside function.
+
+def outer_function(x):
+    def inner_function(y):
+        return x + y
+    return inner_function
+
+print(outer_function(5)(10)) # 15
+
+def outer():
+    print("This is the outer function.")
+    def inner():  # Local function defined inside outer()
+        print("This is the inner function.")
+
+
+# outer() # This is the outer function.
+# inner() # Error: NameError: name 'inner' is not defined
+# outer(inner()) # This is the outer function. This is the inner function.
+
+# Anonymous function: An anonymous function is a function that is defined without a name. In Python, anonymous functions are created using the lambda keyword. They are often used as a quick and simple way to define small functions that can be passed as arguments to other functions or used in functional programming constructs like map(), filter(), and reduce(). Lambda functions can take any number of arguments, but they can only have a single expression. The syntax for defining a lambda function is: lambda arguments: expression.
+# anonymous function : lambda function : lambda arguments: expression
+# function has no name
+
+function = lambda x, y: x + y
+print(function(5, 10)) # 15
+
+# square(s)
+sqr = lambda x: x ** 2
+print(sqr(5)) # 25
+
+print((lambda no: no + 1)(5)) # 6
+
+ans = lambda no: no%2 ==0
+print(ans(5)) # False
+print(ans(6)) # True
+
+ans = lambda no: "Even" if no%2 ==0 else "Odd"
+print(ans(5)) # Odd
+print(ans(6)) # Even

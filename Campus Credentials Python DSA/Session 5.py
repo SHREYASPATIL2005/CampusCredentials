@@ -170,6 +170,8 @@ class Bank:
         print(amt, "successfully deposited..")
 
     def withdraw(self, amt):
+        # Original condition rejected withdrawing the exact balance:
+        # if self.__bal <= amt:
         if amt > self.__bal:
             print("Insufficient balance")
         else:
@@ -193,6 +195,9 @@ b.getbal()
 # ---------------------------------------------------------------------
 # ABC module enforces abstract structure; child classes MUST implement @abstractmethods.
 from abc import ABC, abstractmethod
+
+# The original file imported requests only for an unused name:
+# from requests import head
 
 class Boss(ABC):
     @abstractmethod

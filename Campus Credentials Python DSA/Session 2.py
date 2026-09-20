@@ -555,6 +555,8 @@ consonants_count = 0
 unique_chars = set(s1)  # To avoid counting duplicates
 for i in s1:
     vowels = "aeiouAEIOU"
+# Original condition counted spaces and punctuation as consonants:
+#     if i not in vowels:
     if i not in vowels and i.isalpha():
         consonants_count += 1
 print(consonants_count) # 3
@@ -741,6 +743,8 @@ def fun(*a,b,c):
     print(b) # 20
     print(c) # 30
 
+# Original call raised TypeError because b and c are keyword-only:
+# fun(10,20,30,40)
 fun(10,20,30,b=20,c=30) # b and c must be passed by keyword.
 
 def fun(a,b,*c):
@@ -750,6 +754,8 @@ def fun(a,b,*c):
 
 fun(10,20,30,40) # a=10, b=20, c=(30, 40)
 
+# Original starred assignment was invalid because the target sizes did not match:
+# *a,b,c = (10,20,30,40)
 a,b,c = (10,20,30) # A starred target is not required when the sizes match.
 print(a)
 print(b)

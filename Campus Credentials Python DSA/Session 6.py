@@ -427,6 +427,8 @@ class CQueue:
             self.que[self.rear]=data
             print(data,"is inserted..")
         else:
+            # Original code could run past the end after dequeuing:
+            # self.rear += 1
             # Wrap the rear pointer so dequeued slots can be reused.
             self.rear=(self.rear+1)%self.cap
             self.que[self.rear]=data

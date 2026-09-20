@@ -1,17 +1,13 @@
 
 a = 121
-temp = a
+temp = abs(a)
+number = abs(a)
 rev = 0
-sum = 0
-while a > 0:
-    rem = a % 10  # Gives last digit
-    sum += rem # For addition
-    print(rem)
+while number > 0:
+    rem = number % 10  # Gives last digit
     rev = rev * 10 + rem # Adds last digit to its correct place
-    a = a // 10 # Removes last digit
-    print(a)
-    print(rev)
+    number = number // 10 # Removes last digit
 if ( rev == temp ):
-    print("Pallindrome")
+    print("Palindrome")
 else:
     print("Not Palindrome")

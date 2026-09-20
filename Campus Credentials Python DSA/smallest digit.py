@@ -1,11 +1,13 @@
 a = 8935
+a = 8935
+number = abs(a)
 rem = 0
-sd = a
-while a > 0:
-    rem = a % 10  # Gives last digit
-    print(rem)
+sd = number
+if number == 0:
+    sd = 0
+while number > 0:
+    rem = number % 10  # Gives last digit
     if rem < sd :
      sd = rem
-    a = a // 10 # Removes last digit
-    print(a)
+    number = number // 10 # Removes last digit
 print(sd)

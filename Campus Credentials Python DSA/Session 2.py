@@ -555,7 +555,7 @@ consonants_count = 0
 unique_chars = set(s1)  # To avoid counting duplicates
 for i in s1:
     vowels = "aeiouAEIOU"
-    if i not in vowels: # and i.isalpha():
+    if i not in vowels and i.isalpha():
         consonants_count += 1
 print(consonants_count) # 3
 
@@ -741,8 +741,7 @@ def fun(*a,b,c):
     print(b) # 20
     print(c) # 30
 
-fun(10,20,30,40) # Error: fun() missing 2 required keyword-only arguments: 'b' and 'c'
-fun(10,20,30,b=20,c=30) # a=(10, 20, 30), b=20, c=30
+fun(10,20,30,b=20,c=30) # b and c must be passed by keyword.
 
 def fun(a,b,*c):
     print(a)
@@ -751,12 +750,12 @@ def fun(a,b,*c):
 
 fun(10,20,30,40) # a=10, b=20, c=(30, 40)
 
-*a,b,c = (10,20,30,40) # SyntaxError: starred assignment target must be in a list or tuple
+a,b,c = (10,20,30) # A starred target is not required when the sizes match.
 print(a)
 print(b)
 print(c)
 
-a,b,*c = (10,20,30,40) # SyntaxError: starred assignment target must be in a list or tuple
+a,b,*c = (10,20,30,40) # Starred assignment collects the remaining values.
 print(a) # 10
 print(b) # 20
 print(c) # (30, 40)

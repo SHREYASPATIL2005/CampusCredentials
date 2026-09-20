@@ -1,6 +1,6 @@
 def food(d):
     print(d)
-    print(d[2])
+    print(d.get(2, "No item found"))
 
 
 
@@ -8,9 +8,7 @@ d = {1:"Pizza", 2:"Burger", 3:"Pasta"}
 food(d)
 
 def funNihal():
-    @staticmethod
-    def funNihal():
-            return "Lenovo"
+    return "Lenovo"
 
 
 def shivam():
